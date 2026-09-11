@@ -18,5 +18,5 @@ Meus Hobbys
 <b>𐤟 praticar artes marciais como JIU-JITSU ou KARATÊ</b>
 <br>
 <b>𐤟 Viajar</b>
-
+<hr>
 
