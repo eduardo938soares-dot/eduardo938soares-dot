@@ -6,7 +6,7 @@ Ola!
 https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSauVzJApdtXApJXX78w-fABgqPGbTv-2IYMwU1nlyP_DVyXoUkOvNKiiW7ioo&s
 
 
-
+https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-AwIT_Nv3rboe-grO6AlXoOQlRjgsJJQhHMXB5M2QlDKMNg24R5hqmBnz3A&s
 
 Meu nome é Eduardo estou cursando informatica na escola:
 EEEP Deputado Roberto Mesquita
