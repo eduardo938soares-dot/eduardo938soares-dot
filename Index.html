@@ -1,1 +1,227 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Portfólio de Eduardo Soares, estudante de Técnico em Informática e desenvolvedor em formação.">
+    <title>Eduardo Soares | Portfólio</title>
+    <style>
+      :root {
+        --red: #0f9d4a;
+        --red2: #39ff7a;
+        --surface: rgba(5, 20, 10, .75);
+        --muted: #9fd8b3;
+        --text: #e6ffee;
+        --line: rgba(57, 255, 122, .25);
+      }
+      * { box-sizing: border-box }
+      html { scroll-behavior: smooth }
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+        line-height: 1.6;
+        color: var(--text);
+        background:
+          radial-gradient(circle at 80% 10%, rgba(0, 255, 90, .25), transparent 40%),
+          radial-gradient(circle at 10% 90%, rgba(0, 200, 70, .2), transparent 45%),
+          #050a07;
+        background-attachment: fixed;
+      }
+      /* anel de energia ao fundo */
+      body::before {
+        content: "";
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        width: 70vmin;
+        height: 70vmin;
+        transform: translate(-50%, -50%);
+        border-radius: 50%;
+        border: 6px solid rgba(0, 255, 100, .25);
+        box-shadow: 0 0 60px rgba(0, 255, 100, .35), inset 0 0 60px rgba(0, 255, 100, .2);
+        animation: pulso 4s ease-in-out infinite;
+        z-index: -1;
+        pointer-events: none;
+      }
+      @keyframes pulso {
+        50% { transform: translate(-50%, -50%) scale(1.08); opacity: .6 }
+      }
+      a { color: var(--red2); text-decoration: none }
+      a:focus-visible { outline: 3px solid var(--red2); outline-offset: 3px }
+      img { max-width: 100% }
+      .wrap { width: min(1080px, 92vw); margin: 0 auto }
+      header { border-bottom: 1px solid var(--line) }
+      nav { display: flex; justify-content: space-between; align-items: center; padding: 20px 0 }
+      .brand { font-size: 1.4rem; font-weight: 850; color: var(--text) }
+      .brand span { color: var(--red2) }
+      .navlinks { display: flex; gap: 22px; font-weight: 650; font-size: .95rem }
+      .eyebrow { color: var(--red2); font-weight: 750; font-size: .85rem }
+      h1 { margin: 0 }
 
+      .hero { min-height: auto; padding: 76px 0 66px; display: flex; flex-direction: column; align-items: center; gap: 26px; text-align: center }
+      .photo-area { width: 100%; display: flex; justify-content: center; perspective: 1200px }
+      .photo-flip { width: min(560px, 92vw); height: 430px; outline: none }
+      .photo-flip-inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d; transition: transform .8s cubic-bezier(.2, .7, .2, 1) }
+      .photo-flip:hover .photo-flip-inner, .photo-flip:focus .photo-flip-inner, .photo-flip:focus-within .photo-flip-inner { transform: rotateY(180deg) }
+      .photo-face { position: absolute; inset: 0; overflow: hidden; border: 2px solid var(--red2); border-radius: 24px; backface-visibility: hidden; -webkit-backface-visibility: hidden; box-shadow: 0 0 40px rgba(57, 255, 122, .35) }
+      .photo-front { background: linear-gradient(145deg, #0b2a16, #050a07) }
+      .photo-front img { display: block; width: 100%; height: 100%; object-fit: cover; border-radius: 21px }
+      .photo-back { display: flex; flex-direction: column; align-items: center; justify-content: center; padding: clamp(22px, 5vw, 42px); background: linear-gradient(145deg, #0b2a16, #050a07 75%); transform: rotateY(180deg); text-align: center }
+      .photo-back .eyebrow { margin: 0 0 12px }
+      .photo-back h1 { margin: 0 0 16px; font-size: clamp(2rem, 5vw, 3.4rem); line-height: 1.08; letter-spacing: -1.5px }
+      .photo-back h1 span { color: var(--red2) }
+      .photo-back .intro { max-width: 470px; margin: 0; font-size: 1rem; color: #cfeedd }
+      .actions { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 0 }
+      .btn { display: inline-flex; align-items: center; justify-content: center; padding: 11px 18px; border-radius: 8px; font-weight: 750; border: 1px solid var(--red2); background: var(--red); color: #fff; transition: background .2s, border-color .2s, transform .2s }
+      .btn:hover { transform: translateY(-2px); background: #12b857 }
+      .btn.ghost { background: transparent; border-color: rgba(57, 255, 122, .45); color: var(--red2) }
+      .btn.ghost:hover { border-color: var(--red2); background: rgba(57, 255, 122, .08) }
+      .photo-flip:focus-visible { outline: 3px solid var(--red2); outline-offset: 7px; border-radius: 26px }
+
+      section { padding: 68px 0; border-top: 1px solid var(--line) }
+      .section-kicker { color: var(--red2); font-weight: 800; letter-spacing: 1.8px; text-transform: uppercase; font-size: .76rem }
+      h2 { font-size: clamp(1.8rem, 4vw, 2.6rem); margin: 8px 0 24px; letter-spacing: -1px; color: var(--red2) }
+      .about { max-width: 800px; color: #cfeedd }
+      .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px }
+      .card { background: var(--surface); border: 1px solid rgba(57, 255, 122, .35); border-radius: 14px; padding: 23px; box-shadow: 0 0 18px rgba(57, 255, 122, .15); transition: .2s }
+      .card:hover { border-color: var(--red2); transform: translateY(-3px) }
+      .card-top { display: flex; justify-content: space-between; align-items: center; gap: 12px }
+      .tag { font-size: .72rem; color: var(--red2); background: rgba(57, 255, 122, .12); padding: 4px 9px; border-radius: 30px }
+      .card h3 { margin: 13px 0 7px; font-size: 1.2rem }
+      .card p { margin: 0; color: #cfeedd }
+      .card a { display: inline-block; color: var(--red2); font-weight: 750; margin-top: 17px }
+      .interests { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px }
+      .interest { background: var(--surface); border: 1px solid rgba(57, 255, 122, .35); border-radius: 12px; padding: 20px; box-shadow: 0 0 18px rgba(57, 255, 122, .15) }
+      .interest .symbol { font-size: 1.8rem }
+      .interest h3 { margin: 8px 0 3px }
+      .interest p { margin: 0; color: var(--muted); font-size: .92rem }
+      .goal { background: linear-gradient(120deg, #0b2a16, rgba(5, 10, 7, .9) 70%); border: 1px solid rgba(57, 255, 122, .45); border-radius: 16px; padding: 28px; box-shadow: 0 0 18px rgba(57, 255, 122, .15) }
+      .goal h3 { margin-top: 0 }
+      .goal p { color: #cfeedd; max-width: 800px; margin-bottom: 0 }
+      footer { padding: 30px 0; color: #7fbf94; font-size: .88rem; text-align: center; border-top: 1px solid var(--line) }
+      footer a { color: var(--red2) }
+
+      @media (max-width: 760px) {
+        .hero { padding: 55px 0; gap: 24px }
+        .photo-flip { height: 470px }
+        .photo-back { padding: 24px 20px }
+        .photo-back .intro { font-size: .92rem }
+        .grid { grid-template-columns: 1fr }
+        .interests { grid-template-columns: 1fr }
+        .navlinks { gap: 12px; font-size: .82rem }
+        nav { align-items: flex-start; padding: 15px 0; flex-direction: column; gap: 8px }
+        h1 { letter-spacing: -1.5px }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .photo-flip-inner { transition: none }
+        body::before { animation: none }
+        html { scroll-behavior: auto }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <div class="wrap">
+        <nav aria-label="Navegação principal">
+          <a class="brand" href="#inicio">Eduardo<span>.</span></a>
+          <div class="navlinks">
+            <a href="#sobre">Sobre</a>
+            <a href="#projetos">Projetos</a>
+            <a href="#interesses">Interesses</a>
+            <a href="#objetivos">Objetivos</a>
+            <a href="https://github.com/eduardo938soares-dot" target="_blank" rel="noopener noreferrer">GitHub ↗</a>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main>
+      <div class="wrap hero" id="inicio">
+        <div class="photo-area">
+          <div class="photo-flip" tabindex="0" role="group" aria-label="Passe o cursor ou use o teclado para conhecer mais sobre mim">
+            <div class="photo-flip-inner">
+              <div class="photo-face photo-front">
+                <img src="IMG_0402.png" alt="Foto de Eduardo Soares">
+              </div>
+              <div class="photo-face photo-back">
+                <p class="eyebrow">Estudante de informática · Desenvolvedor em formação</p>
+                <h1>Bem-vindo, sou o <br><span>Eduardo Soares</span></h1>
+                <p class="intro">Sou estudante do curso Técnico em Informática na Escola Estadual de Ensino Profissional Deputado Roberto Mesquita e moro em General Sampaio. Gosto de tecnologia e games .</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="actions">
+          <a class="btn" href="#projetos">Conheça meus projetos</a>
+          <a class="btn ghost" href="https://github.com/eduardo938soares-dot" target="_blank" rel="noopener noreferrer">Meu GitHub</a>
+        </div>
+      </div>
+
+      <section id="sobre">
+        <div class="wrap">
+          <div class="section-kicker">Um pouco sobre mim</div>
+          <h2>Aprendendo...</h2>
+          <p class="about">
+            Atualmente estou desenvolvendo meus conhecimentos em HTML, CSS e JavaScript.
+          </p>
+        </div>
+      </section>
+
+      <section id="projetos">
+        <div class="wrap">
+          <div class="section-kicker">Meu trabalho</div>
+          <h2>Projetos</h2>
+          <div class="grid">
+            <article class="card">
+              <div class="card-top">
+                <span class="tag">Projeto em desenvolvimento</span><span>01</span>
+              </div>
+              <h3>Exercícios 1 – Informática</h3>
+              <p>Projeto independente de inteligência de mercado para jogos, planejado para reunir catálogo, comparação e histórico de preços, com análises explicáveis.</p>
+              <a href="https://github.com/eduardo938soares-dot" target="_blank" rel="noopener noreferrer">Ver repositório ↗</a>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="interesses">
+        <div class="wrap">
+          <div class="section-kicker">Além do código</div>
+          <h2>Coisas de que gosto</h2>
+          <div class="interests">
+            <div class="interest">
+              <div class="symbol" aria-hidden="true">🏃🏾</div>
+              <h3>Correr</h3>
+              <p>Recomendo, é muito bom pra desestressar.</p>
+            </div>
+            <div class="interest">
+              <div class="symbol" aria-hidden="true">🎮</div>
+              <h3>Games</h3>
+              <p>Curto videogames, resident evil, Brawl stars</p>
+            </div>
+            <div class="interest">
+              <div class="symbol" aria-hidden="true">💻</div>
+              <h3>Animes e series </h3>
+              <p>Gosto muito de animes e series como SmallVile</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="objetivos">
+        <div class="wrap">
+          <div class="section-kicker">Possivel Futuro</div>
+          <h2>Meus objetivos</h2>
+          <div class="goal">
+            <h3>Quero me tornar um desenvolvedor de sites e fazer Direito.</h3>
+            <p>Pretendo concluir o Ensino Médio e o Técnico em Informática, cursar Direito pois é meu sonho.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <div class="wrap">
+        © 2026 Eduardo Soares · <a href="https://github.com/eduardo938soares-dot" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </footer>
+  </body>
+            </html>
